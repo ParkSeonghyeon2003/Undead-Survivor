@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("# Game Control")]
     public bool isLive;
     public float gameTime;
-    public float maxGameTime = 2 * 10f;
+    public float maxGameTime = 300f;
     [Header("# Player Info")]
     public int playerId;
     public float health;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         Application.targetFrameRate = 60;
+        StartCoroutine(GoogleSheetManager.LoadEnemyData());
     }
 
     public void GameStart(int id)
