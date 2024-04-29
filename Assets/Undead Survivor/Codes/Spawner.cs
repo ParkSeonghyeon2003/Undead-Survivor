@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
+        spawnData = GoogleSheetManager.spawnData;
         levelTime = GameManager.instance.maxGameTime / spawnData.Length;
     }
 
