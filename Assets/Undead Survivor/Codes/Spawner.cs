@@ -3,7 +3,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Transform[] spawnPoint;
-    public SpawnData[] spawnData;
     public float levelTime;
 
     int level;
@@ -12,8 +11,7 @@ public class Spawner : MonoBehaviour
     void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-        spawnData = GoogleSheetManager.spawnData;
-        levelTime = GameManager.instance.maxGameTime / spawnData.Length;
+        levelTime = GameManager.instance.maxGameTime / GoogleSheetManager.spawnData.Length;
     }
 
     void Update()
@@ -22,9 +20,9 @@ public class Spawner : MonoBehaviour
             return;
 
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / levelTime), spawnData.Length - 1);
+        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / levelTime), GoogleSheetManager.spawnData.Length - 1);
 
-        if (timer > spawnData[level].spawnTime) {
+        if (timer > GoogleSheetManager.spawnData[level].spawnTime) {
             timer = 0;
             Spawn();
         }
@@ -34,15 +32,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[level]);
+        enemy.GetComponent<Enemy>().Init(GoogleSheetManager.spawnData[level]);
     }
 }
 
-[System.Serializable]
-public class SpawnData
-{
-    public float spawnTime;
-    public int spriteType;
-    public int health;
-    public float speed;
-}

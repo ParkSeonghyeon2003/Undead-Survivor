@@ -36,3 +36,16 @@ public static class GoogleSheetManager
         }
     }
 }
+
+[System.Serializable]
+public class SpawnData
+{
+    public float spawnTime;
+    public int spriteType;
+    public int health;
+    public float speed;
+}
+
+// 이 게임을 좀 확장하면서, 어떤 게임 만들고 싶은지 해오고, 간단한거 한 2달정도면 만드는거. 
+// 사실 코드 짜는거는 별로 안걸려 . 뭐가 오래 걸리냐? -> 뭔 게임만들지. 
+// 에셋 스토어에서 너가 만들게임의 에셋 정하기. 
