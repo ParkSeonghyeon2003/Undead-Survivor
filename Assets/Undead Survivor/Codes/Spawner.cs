@@ -7,11 +7,12 @@ public class Spawner : MonoBehaviour
 
     int level;
     float timer;
+    float bossTimer;
 
     void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-        levelTime = GameManager.instance.maxGameTime / GoogleSheetManager.spawnData.Length;
+        levelTime = GameManager.instance.maxGameTime / GoogleSheetManager.spawnData.Length - 1;
     }
 
     void Update()
@@ -20,11 +21,17 @@ public class Spawner : MonoBehaviour
             return;
 
         timer += Time.deltaTime;
+        bossTimer += Time.deltaTime;
         level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / levelTime), GoogleSheetManager.spawnData.Length - 1);
 
         if (timer > GoogleSheetManager.spawnData[level].spawnTime) {
             timer = 0;
             Spawn();
+        }
+        if (bossTimer > GoogleSheetManager.spawnData[3].spawnTime)
+        {
+            bossTimer = 0;
+            BossSpawn();
         }
     }
 
@@ -33,6 +40,12 @@ public class Spawner : MonoBehaviour
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(GoogleSheetManager.spawnData[level]);
+    }
+    void BossSpawn()
+    {
+        GameObject enemy = GameManager.instance.pool.Get(0);
+        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+        enemy.GetComponent<Enemy>().Init(GoogleSheetManager.spawnData[3]);
     }
 }
 

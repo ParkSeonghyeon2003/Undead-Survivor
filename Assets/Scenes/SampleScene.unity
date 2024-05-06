@@ -14752,7 +14752,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.092592
+  orthographic size: 9.208333
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17435,6 +17435,7 @@ MonoBehaviour:
   - {fileID: 6868107195469920018, guid: 297d7ad379bf64242a1b0c281ff3c24c, type: 3}
   - {fileID: 3522266200122710842, guid: 88fe827f4923be546a1d9cf13805fb0b, type: 3}
   - {fileID: 4082150781826746740, guid: c21e10aaa3b84f946828b4ad454440dd, type: 3}
+  - {fileID: 201574183456756873, guid: 8af2633fdd99062418c142392b4e988e, type: 3}
 --- !u!4 &1081947650
 Transform:
   m_ObjectHideFlags: 0
@@ -19098,7 +19099,7 @@ GameObject:
   - component: {fileID: 1466277283}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25921,15 +25922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
-  spawnData:
-  - spawnTime: 0.7
-    spriteType: 0
-    health: 10
-    speed: 1.5
-  - spawnTime: 0.2
-    spriteType: 1
-    health: 15
-    speed: 2.4
   levelTime: 0
 --- !u!1 &1947884148
 GameObject:

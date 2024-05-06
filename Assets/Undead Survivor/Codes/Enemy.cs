@@ -90,7 +90,10 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
             GameManager.instance.GetExp();
-
+            if (anim.runtimeAnimatorController.name == "AcEnemy 4") {
+                GameObject box = GameManager.instance.pool.Get(3);
+                box.transform.position = transform.position;
+            }
             if (GameManager.instance.isLive)
                 AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
         }
