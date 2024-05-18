@@ -41,6 +41,7 @@ public class Spawner : MonoBehaviour
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(GoogleSheetManager.spawnData[level]);
     }
+    // 이미 만들어진 함수로 수정하기
     void BossSpawn()
     {
         GameObject enemy = GameManager.instance.pool.Get(0);

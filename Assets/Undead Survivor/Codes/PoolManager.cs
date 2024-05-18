@@ -16,7 +16,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(int index)
+    public GameObject Get(int index) //, string type
     {
         GameObject select = null;
 
@@ -34,6 +34,8 @@ public class PoolManager : MonoBehaviour
         if (!select) {
             // ... 새롭게 새성하고 select 변수에 할당
             select = Instantiate(prefabs[index], transform);
+            //if(type == "Boss")
+            //    select.name = "Boss";
             pools[index].Add(select);
         }
 

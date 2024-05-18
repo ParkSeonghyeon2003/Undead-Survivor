@@ -26,6 +26,18 @@ public class GameManager : MonoBehaviour
     public Result uiResult;
     public GameObject enemyCleaner;
 
+    /* Ex
+    public GameObject poolManager;
+
+    void DestroyEnemys()
+    {
+        if(poolManager.gameObject.FindWithTag("Enemy"))
+        {
+            // Á×¿© ¹ö·Á¶ó 
+        };
+    }
+    */
+
     void Awake()
     {
         instance = this;
